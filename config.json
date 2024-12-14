@@ -1,6 +1,6 @@
 {
-    "db_name" : "EXAMPLE",
-    "user": "EXAMPLE",
-    "password": "EXAMPLE",
-    "host": "EXAMPLE"
+    "db_name" : "postgres",
+    "user": "postgres",
+    "password": "3345",
+    "host": "localhost"
 }

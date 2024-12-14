@@ -7,7 +7,7 @@ const sequelize = new Sequelize(config.db_name, config.user, config.password, {
 });
 
 sequelize.authenticate()
-    .then(() => console.log('Conexión exitosa'))
+    .then(() => console.log('Conexión con la base de datos exitosa.'))
     .catch(err => console.error('No se pudo conectar:', err));
 
 module.exports = sequelize;
