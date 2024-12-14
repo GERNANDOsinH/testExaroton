@@ -1,1 +1,1 @@
-# testExaroton
+1) En config.json cambiar los atributos de la base de datos.
