@@ -49,8 +49,7 @@ app.put('/usuarios/:id', async (req, res) => {
     const { id } = req.params;
     const { nombre, rol } = req.body;
     try {
-        await update_user(id, nombre, rol);
-        res.json({ message: `Usuario con ID ${id} actualizado.` });
+        res.json({ message: await update_user(id, nombre, rol) });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -59,8 +58,7 @@ app.put('/usuarios/:id', async (req, res) => {
 app.delete('/usuarios/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        await destroy_user(id);
-        res.json({ message: `Usuario con ID ${id} eliminado.` });
+        res.json({ message: await destroy_user(id) });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

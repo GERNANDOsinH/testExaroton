@@ -42,14 +42,15 @@ async function get_user(id_subject) {
 
 async function update_user(id_subject, nombre, rol) {
     try {
+        let msg;
         const [affectedCount] = await Usuario.update({nombre, rol}, {where: {id: id_subject}});
         if (affectedCount === 0) {
-            console.log(`No se encontró un usuario con ID ${id_subject} para actualizar.`);
-            throw new Error('Usuario no encontrado');
+            msg = `No se encontró un usuario con ID ${id_subject} para actualizar.`;
         } else {
-            console.log(`Usuario con ID ${id_subject} actualizado.`);
-            return true;
+            msg = `Usuario con ID ${id_subject} actualizado.`;
         }
+        console.log(msg);
+        return msg;
     }
     catch (error) {
         console.error("Error al actualizar el usuario: ", error);
@@ -58,14 +59,16 @@ async function update_user(id_subject, nombre, rol) {
 
 async function destroy_user(id_subject) {
     try {
+        let msg;
         const deletedCount = await Usuario.destroy({ where: { id: id_subject } });
         if (deletedCount === 0) {
-            console.log(`No se encontró un usuario con ID ${id_subject} para eliminar.`);
-            throw new Error('Usuario no encontrado');
+            msg = `No se encontró un usuario con ID ${id_subject} para eliminar.`;
         } else {
-            console.log(`Usuario con ID ${id_subject} eliminado.`);
+            msg = `Usuario con ID ${id_subject} eliminado.`;
             return true;
         }
+        console.log(msg);
+        return msg;
     }
     catch (error) {
         console.error('Error al eliminar el usuario: ', error);

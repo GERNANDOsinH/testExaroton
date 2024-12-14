@@ -12,7 +12,7 @@ const Usuario = sequelize.define('Usuario', {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    correo: {
+    email: {
       type: DataTypes.STRING,
       unique: true,
       validate: {
